@@ -18,7 +18,7 @@ services:
 
   loadbalancer:
     image: nginx:alpine
-    container_name: nginx-round-robin
+    container_name: nginx-least-connections
     ports:
       - "8089:80"
     volumes:
