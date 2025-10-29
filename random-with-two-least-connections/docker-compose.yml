@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  server1:
+    image: nginx:alpine
+    container_name: server17
+    command: /bin/sh -c "echo 'Server 17' > /usr/share/nginx/html/index.html && nginx -g 'daemon off;'"
+
+  server2:
+    image: nginx:alpine
+    container_name: server18
+    command: /bin/sh -c "echo 'Server 18' > /usr/share/nginx/html/index.html && nginx -g 'daemon off;'"
+
+  server3:
+    image: nginx:alpine
+    container_name: server19
+    command: /bin/sh -c "echo 'Server 19' > /usr/share/nginx/html/index.html && nginx -g 'daemon off;'"
+
+  loadbalancer:
+    image: nginx:alpine
+    container_name: nginx-random-with-two-least-connections
+    ports:
+      - "8092:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
