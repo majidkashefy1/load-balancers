@@ -28,5 +28,3 @@ It allows you to test and compare multiple strategies — all running locally on
 
 ---
 
-## 🧱 Architecture
-
